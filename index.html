@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <header class="site-header">
+    <div class="container"><h1>Mini Task Manager</h1><p>Bài kiểm tra thực hành HTML, CSS, JavaScript</p></div>
+  </header>
+
+  <main class="container layout">
+    <!-- A: Form thêm công việc: tên công việc, hạn hoàn thành, mức ưu tiên -->
+    <section class="panel form-panel" aria-labelledby="form-title">
+      <h2 id="form-title">Thêm công việc</h2>
+
+      <form id="task-form" novalidate>
+        <div class="field">
+          <label for="task-title">Tên công việc <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="task-title" name="title" placeholder="Ví dụ: Nộp bài tập JavaScript" maxlength="120" autocomplete="off" required aria-describedby="form-error">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="task-due">Hạn hoàn thành</label>
+            <input type="date" id="task-due" name="dueDate">
+          </div>
+          <div class="field">
+            <label for="task-priority">Mức ưu tiên</label>
+            <select id="task-priority" name="priority">
+              <option value="Cao">Cao</option>
+              <option value="Trung bình" selected>Trung bình</option>
+              <option value="Thấp">Thấp</option>
+            </select>
+          </div>
+        </div>
+
+        <p id="form-error" class="form-error" role="alert" aria-live="polite"></p>
+
+        <button type="submit" class="btn btn-primary btn-block">Thêm công việc</button>
+      </form>
+    </section>
+
+    <!-- A: Tìm kiếm, lọc trạng thái và vùng hiển thị danh sách -->
+    <section class="panel list-panel" aria-labelledby="list-title">
+      <div class="list-head">
+        <h2 id="list-title">Danh sách công việc</h2>
+        <p id="task-summary" class="summary" aria-live="polite"></p>
+      </div>
+
+      <div class="toolbar">
+        <div class="field grow">
+          <label for="search-input">Tìm kiếm</label>
+          <input type="search" id="search-input" placeholder="Nhập tên công việc..." autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="status-filter">Trạng thái</label>
+          <select id="status-filter">
+            <option value="all">Tất cả</option>
+            <option value="pending">Chưa hoàn thành</option>
+            <option value="done">Đã hoàn thành</option>
+          </select>
+        </div>
+      </div>
+
+      <ul id="task-list" class="task-list"></ul>
+      <p id="empty-state" class="empty-state" hidden></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <!-- Ghi rõ họ tên và mã sinh viên -->
+    Sinh viên: Đào Quang Dương  |  MSSV: 224001714  |  Lớp:  TUD D2024
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
